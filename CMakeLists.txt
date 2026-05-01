@@ -70,6 +70,7 @@ target_link_libraries(ranger PUBLIC Threads::Threads)
 
 add_executable(ranger-cli src/cli/main.cpp)
 set_target_properties(ranger-cli PROPERTIES OUTPUT_NAME ranger)
+target_include_directories(ranger-cli PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/ranger)
 target_link_libraries(ranger-cli PRIVATE Ranger::ranger)
 
 install(TARGETS ranger ranger-cli
