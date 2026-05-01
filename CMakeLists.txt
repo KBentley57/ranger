@@ -21,7 +21,6 @@ target_compile_features(ranger PUBLIC cxx_std_14)
 target_sources(ranger
   PRIVATE
     src/Data.cpp
-    src/DataSparse.cpp
     src/Forest.cpp
     src/ForestClassification.cpp
     src/ForestProbability.cpp
@@ -43,8 +42,6 @@ target_sources(ranger
       include/ranger/DataChar.h
       include/ranger/DataDouble.h
       include/ranger/DataFloat.h
-      include/ranger/DataSparse.h
-      include/ranger/DataRcpp.h
       include/ranger/Forest.h
       include/ranger/ForestClassification.h
       include/ranger/ForestProbability.h
@@ -73,6 +70,7 @@ target_link_libraries(ranger PUBLIC Threads::Threads)
 
 add_executable(ranger-cli src/cli/main.cpp)
 set_target_properties(ranger-cli PROPERTIES OUTPUT_NAME ranger)
+target_include_directories(ranger-cli PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/ranger)
 target_link_libraries(ranger-cli PRIVATE Ranger::ranger)
 
 install(TARGETS ranger ranger-cli
