@@ -21,7 +21,6 @@ target_compile_features(ranger PUBLIC cxx_std_14)
 target_sources(ranger
   PRIVATE
     src/Data.cpp
-    src/DataSparse.cpp
     src/Forest.cpp
     src/ForestClassification.cpp
     src/ForestProbability.cpp
@@ -43,8 +42,6 @@ target_sources(ranger
       include/ranger/DataChar.h
       include/ranger/DataDouble.h
       include/ranger/DataFloat.h
-      include/ranger/DataSparse.h
-      include/ranger/DataRcpp.h
       include/ranger/Forest.h
       include/ranger/ForestClassification.h
       include/ranger/ForestProbability.h
